@@ -7,19 +7,40 @@ import { supabase } from "../supabase";
 
 
 export default function Questionpage(){
+    const { questions } = questionsObject;
+   
+    //Get Questions depennding on the Day
+    const getActiveQuestion = () => {
+        
+        const today = new Date(2023,6,1);
+        // const dayOfWeek = today.getDay();
+        const endOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
+        const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        const endOfYear = new Date(today.getFullYear()+1,0,0);
 
-    const [activeQuestion, setActiveQuestion] = useState(0);
+        if (today.getTime() === endOfYear.getTime()) {
+           return 0;
+        } else if (today.getDate() === endOfMonth.getDate()) {
+            return 1;
+        } else
+        // const daysToEndOfWeek = (endOfWeek.getTime() - today.getTime()) / (1000 * 3600 * 24);
+       
+
+        if (today.getDay() === 1) {
+          return 2; // Return Mondays
+        } else
+        return 3; // Default case
+      }
+
+    // const [activeQuestion, setActiveQuestion] = useState(0);
     const [inputAnswer, setInputAnswer] = useState('');
     const [checked, setChecked] = useState(false);
     const [showDashboard, setShowDashboard] = useState(false);
+    const [activeQuestion, setActiveQuestion] = useState(getActiveQuestion());
         
-      const { questions } = questionsObject;
-      const { id, goal, question, answer} = questions[activeQuestion];
-      
-      const [titleVale, setTitleValue] = useState(questions.goal);
-      const [descriptionVale, setDescriptionValue] = useState(questions.question);
+    const { goal, question} = questions[activeQuestion];
 
-      const onAnswerInput = async (e) => {
+    const onAnswerInput = async (e) => {
         const answer = e.target.value;
         setInputAnswer(answer);
         setChecked(true);
@@ -57,13 +78,12 @@ export default function Questionpage(){
         if (showDashboard) {
           console.log("Finished all questions");
           router.push("/");
-          
         }
       }, [showDashboard,router]);
     
     return(
     <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-8 mt-4 sm:mt-3 lg:mt-3 items-center">
-      <div>
+      <div className="ml-1">
         <p>Questions for today: {questions.length}</p>
       </div>
       {!showDashboard ? (
