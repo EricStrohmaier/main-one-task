@@ -40,7 +40,7 @@ export default function Questionpage(){
         
     const { goal, question} = questions[activeQuestion];
 
-    const onAnswerInput = async (e) => {
+    const getAnswerInput = async (e) => {
         const answer = e.target.value;
         setInputAnswer(answer);
         setChecked(true);
@@ -76,7 +76,7 @@ export default function Questionpage(){
 
       useEffect(() => {
         if (showDashboard) {
-          console.log("Finished all questions");
+         
           router.push("/");
         }
       }, [showDashboard,router]);
@@ -87,14 +87,14 @@ export default function Questionpage(){
         <p>Questions for today: {questions.length}</p>
       </div>
       {!showDashboard ? (
-        <div className="overflow-hidden mt-5 mb-5 rounded-lg px-5 py-4 bg-gray-200 border border-transparent transition-colors hover:border-gray-300">
+        <div className="overflow-hidden m-5 rounded-lg px-5 py-4 bg-gray-100 border border-transparent transition-colors hover:border-gray-300">
         <div className="ml-1">
         <h3>{questions[activeQuestion].goal}</h3>
         <h3>{questions[activeQuestion].question}</h3>
         </div>
         <input  
              value={inputAnswer}
-            onChange={onAnswerInput}
+            onChange={getAnswerInput}
             className="rounded-2xl p-1  indent-4"
             type="text"
             placeholder="Your Awnser" /> 

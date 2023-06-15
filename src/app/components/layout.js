@@ -1,14 +1,16 @@
 import Footer from "./Footer";
-import Header from "./Header";
+import HeaderSidebar from "./Header";
 
 export default function AppLayout({children}){
     return(
-        <div className="min-h-screen flex flex-col">
-            <Header/>
-                <main className="flex-grow bg-gray-100">
+        <div className="min-h-screen flex ">
+            <HeaderSidebar/>
+                <main className="w-full  bg-gray-200">
+             
                     {children}
                 </main>
-            <Footer/>
+     
+            {/* <Footer/> */}
         </div>
     )
 

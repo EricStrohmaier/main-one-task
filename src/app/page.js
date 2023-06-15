@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let { data, error } = await supabase.from("questions").select("*");
+        let { data, error } = await supabase.from("questions").select("*").order('created_at', { ascending: false });
         if (error) {
           throw new Error(error.message);
         }
@@ -28,15 +28,11 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 text-center item-center font-bold text-3xl">Loading...</div>;
   }
   return (
-    <main className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 text-center item-center">
-      <div>Dashboard</div>
-      <Link href={"/questions"}>
-        <button className="p-2 bg-blue-300 rounded-2xl">Start</button>
-      </Link>
-      <div className="font-semibold lg:text-4xl sm:text-2xl text-gray-800">
+    <main className="relative max-w-5xl mx-auto pt-12 sm:pt-12 lg:pt-12 text-center item-center">
+      <div className="font-medium m-5  text-gray-800">
         {datas.map((data) => (
           <Card key={data.id} data={data} />
         ))}
