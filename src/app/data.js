@@ -3,31 +3,31 @@ export const questionsObject = {
     questions:[
         {
             id: 1,
-            goal: "One-Year Goal",
+            title: "One-Year Goal",
             question:"What's one thing you want to accomplish in one year?",
             answer: "",
         },
         {
             id: 2,
-            goal: "Montly Goal",
+            title: "Montly Goal",
             question:"Based on my One Year Goal, whats the one thing I can do this month?",
             answer: "",
         },
         {
             id: 3,
-            goal: "Weekly Goal",
+            title: "Weekly Goal",
             question:"Based on my Montly Goal, whats the one thing I can do this week?",
             answer: "",
         },
         {
             id: 4,
-            goal: "Daily Goal",
+            title: "Daily Goal",
             question:"Based on my Weekly Goal, whats the one thing I can do today?",
             answer: "",
         },
         {
             id: 5,
-            goal: "Right Now",
+            title: "Right Now",
             question:"Based on my Daily Goal, whats the one thing I can start doing right now to accive my goal?",
             answer: "",
         },

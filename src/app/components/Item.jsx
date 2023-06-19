@@ -7,7 +7,7 @@ export const Item = ({ title, to, icon, selected, setSelected }) => {
   return (
     <MenuItem
       active={isActive}
-      className={isActive ? "text-gray-700 " : "text-gray-400"}
+      className={isActive ? "text-gray-700  " : "text-gray-400"}
       onClick={() => setSelected(title)}
       icon={icon}
     >

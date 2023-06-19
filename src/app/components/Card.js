@@ -2,6 +2,7 @@
 import { PencilSquareIcon, DocumentCheckIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { supabase } from "../supabase";
 import { useState } from "react";
+import { questionsObject } from "../data";
 
 export default function Card({ data }) {
   const [editing, setEditing] = useState(false);
@@ -32,6 +33,7 @@ export default function Card({ data }) {
       }
     setDone(true);
   }
+  
 
   return (
     <div className="mt-5 mb-3 rounded-lg px-5 py-4 bg-gray-100 border border-transparent transition-colors hover:border-gray-300">

@@ -12,7 +12,7 @@ export default function Questionpage(){
     //Get Questions depennding on the Day
     const getActiveQuestion = () => {
         
-        const today = new Date(2023,6,1);
+        const today = new Date();
         // const dayOfWeek = today.getDay();
         const endOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
         const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
@@ -25,7 +25,6 @@ export default function Questionpage(){
         } else
         // const daysToEndOfWeek = (endOfWeek.getTime() - today.getTime()) / (1000 * 3600 * 24);
        
-
         if (today.getDay() === 1) {
           return 2; // Return Mondays
         } else
@@ -38,21 +37,22 @@ export default function Questionpage(){
     const [showDashboard, setShowDashboard] = useState(false);
     const [activeQuestion, setActiveQuestion] = useState(getActiveQuestion());
         
-    const { goal, question} = questions[activeQuestion];
+    const { id,title, question} = questions[activeQuestion];
 
     const getAnswerInput = async (e) => {
         const answer = e.target.value;
         setInputAnswer(answer);
         setChecked(true);
       };
-    
+     
       const nextQuestion = async (e) => {
         const answer = e.target.value;
         try {
             const { data, error } = await supabase.from("questions").insert([
               {
-                title: goal,
+                title: title,
                 description: question,
+                // title_id: id,
                 answer: answer,
               },
             ]);
@@ -84,12 +84,12 @@ export default function Questionpage(){
     return(
     <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-8 mt-4 sm:mt-3 lg:mt-3 items-center">
       <div className="ml-1">
-        <p>Questions for today: {questions.length}</p>
+        {/* <p>Questions for today: {questions[activeQuestion.length]}</p> */}
       </div>
       {!showDashboard ? (
         <div className="overflow-hidden m-5 rounded-lg px-5 py-4 bg-gray-100 border border-transparent transition-colors hover:border-gray-300">
         <div className="ml-1">
-        <h3>{questions[activeQuestion].goal}</h3>
+        <h3>{questions[activeQuestion].title}</h3>
         <h3>{questions[activeQuestion].question}</h3>
         </div>
         <input  
