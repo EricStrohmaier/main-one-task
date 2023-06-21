@@ -10,17 +10,25 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
+    "@supabase/auth-helpers-nextjs": "^0.6.1",
     "@supabase/supabase-js": "^2.25.0",
     "autoprefixer": "10.4.14",
+    "classnames": "^2.3.2",
     "encoding": "^0.1.13",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "formik": "^2.4.2",
     "next": "13.4.5",
+    "next-router-mock": "^0.9.6",
     "node-fetch": "^2.6.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
-    "tailwindcss": "3.3.2"
+    "tailwindcss": "3.3.2",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3"
   }
 }

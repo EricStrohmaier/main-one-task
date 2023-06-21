@@ -1,8 +1,7 @@
 "use client"
-import Link from "next/link";
 import Logo from "./Logo";
-import {ShoppingCartIcon, XMarkIcon, Bars3BottomLeftIcon ,
-   ArchiveBoxIcon, Squares2X2Icon,RectangleGroupIcon, RectangleStackIcon, GlobeAltIcon,SparklesIcon,CakeIcon,BookOpenIcon,  IdentificationIcon, ClockIcon } from "@heroicons/react/24/outline"
+import { XMarkIcon, Bars3BottomLeftIcon ,
+   ArchiveBoxIcon, RectangleGroupIcon, RectangleStackIcon, GlobeAltIcon,SparklesIcon,CakeIcon,BookOpenIcon,  IdentificationIcon, ClockIcon } from "@heroicons/react/24/outline"
 import { MenuItem, Sidebar, Menu } from "react-pro-sidebar";
 import { useState } from "react";
 import { Item } from "./Item";
@@ -66,7 +65,7 @@ export default function HeaderSidebar(){
               <Item
                 
                 title="Dashboard"
-                to="/"
+                to="/dashboard"
                 icon={<RectangleGroupIcon />}
                 selected={selected}
                 setSelected={setSelected}

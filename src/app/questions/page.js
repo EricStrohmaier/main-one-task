@@ -1,12 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { questionsObject } from "../data";
+
 
 import { useRouter } from "next/navigation";
+
+import { questionsObject } from "../data";
 import { supabase } from "../supabase";
 
 
 export default function Questionpage(){
+   //set router to go back to dashboard/homepage
+    const router = useRouter();  
     const { questions } = questionsObject;
    
     //Get Questions depennding on the Day
@@ -71,8 +75,7 @@ export default function Questionpage(){
           setChecked(false);
         }
       }; 
-      //set router to go back to dashboard/homepage
-      const router = useRouter();
+     
 
       useEffect(() => {
         if (showDashboard) {

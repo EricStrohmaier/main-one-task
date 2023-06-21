@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const forms = require('@tailwindcss/forms');
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        "blueImg" : "url('https://unsplash.com/photos/hHysFXwZ47U')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -18,5 +20,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [forms],
 }
